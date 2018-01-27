@@ -1,11 +1,11 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyC6ep04RzS1MZw6oVcThylSSFHXRItKm9U",
-  authDomain: "enragedsmokers1.firebaseapp.com",
-  databaseURL: "https://enragedsmokers1.firebaseio.com",
-  projectId: "enragedsmokers1",
-  storageBucket: "enragedsmokers1.appspot.com",
-  messagingSenderId: "558217311563"
+  apiKey: "AIzaSyBpj78TUXM4dHQ60BxLpeB8VHcTsdwNQRc",
+  authDomain: "project-1-c63b2.firebaseapp.com",
+  databaseURL: "https://project-1-c63b2.firebaseio.com",
+  projectId: "project-1-c63b2",
+  storageBucket: "project-1-c63b2.appspot.com",
+  messagingSenderId: "9690953747"
 };
 firebase.initializeApp(config);
 // Create a variable to reference the database
