@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Out and About</title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <!--   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+</head>
+
+<body>
+
+  <!--                    NAVIGATION MENU WHEN NEEDED       -->
+  <!-- <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Enraged Smoke</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Menu</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Menu</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> -->
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br>
+        <br>
+        <h1 class="header center green-text text-lighten-2" style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Out and About</h1>
+        <div class="row center">
+          <h4 class="header col s12 light" style="color: white; font-weight: bold; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Search For Bars and Current Weather Conditions!</h5>
+        </div>
+        <div class="row center">
+          <!-- if we need a button here this below will work -->
+          <!-- <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light green lighten-1">Let's Do Work</a> -->
+        </div>
+        <br>
+        <br>
+
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="smoke1.png" alt="Unsplashed background img 1">
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--                            Weather Application                       -->
+      <div class="row">
+        <div class="col s12 m3">
+          <div class="icon-block">
+            <h2 class="center green-text">
+              <i class="material-icons z-depth-3 circle">flash_on</i>
+            </h2>
+            <span id="status">Please Enter Zip Code</span>
+            <br>
+            <div>
+
+              <input id="address" id="zipCode" type="text" placeholder="Zip Code" type="textbox" class="form-control required">
+              <button class="btn2 waves-effect waves-light hoverable green z-depth-3 pulse" type="submit" name="action" id="submit" type="button"
+                value="submit" onclick="Materialize.fadeInImage('#results'), Materialize.toast('Success!', 2000, 'rounded')">Submit</button>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col s12 m6">
+          <div class="icon-block">
+            <h2 class="center green-text">
+              <i class="material-icons z-depth-3 circle">local_bar</i>
+            </h2>
+            <h5 class="center">Bars</h5>
+
+
+            <div id="map" style="height: 400px;" class="z-depth-5">
+
+            </div>
+          </div>
+        </div>
+        <!--                            Weather App Results                       -->
+
+
+        <div class="col s12 m3" class="flow-text">
+          <div class="icon-block">
+            <h2 class="center green-text">
+              <i class="material-icons z-depth-3 circle">cloud_queue</i>
+            </h2>
+            <h5 class="center">Current Weather</h5>
+            <div id="results" class="z-depth-5">
+              <div class="city"></div>
+              <div class="temp"></div>
+              <div class="wind"></div>
+              <div class="humidity"></div>
+
+              <br>
+            </div>
+            <!-- <p class="light center">Results!</p> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 dark"> </h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax">
+      <img src="smoke3.png" alt="Unsplashed background img 2">
+    </div>
+  </div>
+
+  <!--                           RESULTS FROM FIREBASE                   -->
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3>
+            <i class="mdi-content-send brown-text"></i>
+          </h3>
+          <h4>Previous Searches</h4>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title"></h3>
+            </div>
+            <div class="panel-body">
+              <div id="full-zipcode-list"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer green">
+    <!--                           SUB MENU SYSTEM - LINKS TO SOCIAL       -->
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Cool Important Info</h5>
+          <p class="grey-text text-lighten-3">results RESULTS results RESULTS results RESULTS results</p>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+          </ul>
+        </div>
+      </div> -->
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made with
+        <a class="green-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        <a class="white-text text-lighten-3"> via</a>
+        <a class="green-text text-lighten-3" href="https://github.com/Townsend2014/Enraged-Smokers"> Ravi Saymay David William</a>
+      </div>
+    </div>
+  </footer>
+  <!--  Scripts-->
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH-x4BSPWpRzYjUEpubsuDp1LioaiZp-4&libraries=places&callback=initMap"
+    async defer></script>
+  <!--  <script src="js/googlemap.js"></script> -->
+</body>
+
+</html>
